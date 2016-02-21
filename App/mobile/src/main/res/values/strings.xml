@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Represent</string>
+    <string name="app_title">represent</string>
+    <string name="app_slogan">know your congress members.</string>
+    <string name="enter_zip_code">Enter your zip code</string>
+    <string name="current_location">Current Location</string>
+</resources>
