@@ -19,6 +19,7 @@
             android:name=".CongressionalViewActivity"
             android:label="@string/title_activity_congressional_view"
             android:theme="@style/AppTheme"></activity>
+        <service android:name=".PhoneToWatchService" />
     </application>
 
 </manifest>

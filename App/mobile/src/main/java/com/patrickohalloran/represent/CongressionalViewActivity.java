@@ -47,9 +47,10 @@ public class CongressionalViewActivity extends AppCompatActivity {
 
         //trying to set tabs here
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tab_layout);
-        tabLayout.addTab(tabLayout.newTab().setText("Tab1"));
-        tabLayout.addTab(tabLayout.newTab().setText("Tab2"));
-        tabLayout.addTab(tabLayout.newTab().setText("Tab3"));
+        tabLayout.addTab(tabLayout.newTab().setText("Sen"));
+        tabLayout.addTab(tabLayout.newTab().setText("Sen"));
+        tabLayout.addTab(tabLayout.newTab().setText("Rep"));
+        tabLayout.setSelectedTabIndicatorColor(getResources().getColor(R.color.colorBlack));
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
 
         // Create the adapter that will return a fragment for each of the three
@@ -143,10 +144,5 @@ public class CongressionalViewActivity extends AppCompatActivity {
             }
             return null;
         }
-    }
-
-    public void goHome(View view) {
-        Intent intent = new Intent(this, MainViewMobileActivity.class);
-        startActivity(intent);
     }
 }

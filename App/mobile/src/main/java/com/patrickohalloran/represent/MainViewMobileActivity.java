@@ -16,5 +16,8 @@ public class MainViewMobileActivity extends AppCompatActivity {
     public void getCongressMembers(View view) {
         Intent intent = new Intent(this, CongressionalViewActivity.class);
         startActivity(intent);
+        Intent sendIntent = new Intent(getBaseContext(), PhoneToWatchService.class);
+        sendIntent.putExtra("CAT_NAME", "Fred");
+        startService(sendIntent);
     }
 }
