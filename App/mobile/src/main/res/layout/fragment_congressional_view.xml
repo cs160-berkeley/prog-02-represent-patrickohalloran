@@ -9,7 +9,8 @@
     tools:context="com.patrickohalloran.represent.CongressionalViewActivity$PlaceholderFragment">
 
     <TextView
-        android:gravity="center"
+        android:layout_marginTop="?android:attr/actionBarSize"
+        android:textAlignment="center"
         android:id="@+id/section_label"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

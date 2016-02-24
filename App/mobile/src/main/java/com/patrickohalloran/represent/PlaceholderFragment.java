@@ -35,9 +35,18 @@ public class PlaceholderFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_congressional_view, container, false);
-        TextView textView = (TextView) rootView.findViewById(R.id.section_label);
-        textView.setText(getString(R.string.section_format, getArguments().getInt(ARG_SECTION_NUMBER)));
+        int person = getArguments().getInt(ARG_SECTION_NUMBER);
+        int layout_int;
+        if (person == 3) {
+            layout_int = R.layout.fragment_di_congressional;
+        } else if (person == 2) {
+            layout_int = R.layout.fragment_bb_congressional;
+        } else {
+            layout_int = R.layout.fragment_df_congressional;
+        }
+        View rootView = inflater.inflate(layout_int, container, false);
+//        TextView textView = (TextView) rootView.findViewById(R.id.section_label);
+//        textView.setText(getString(R.string.section_format, getArguments().getInt(ARG_SECTION_NUMBER)));
         return rootView;
     }
 }

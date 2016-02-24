@@ -42,6 +42,8 @@ public class CongressionalViewActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_congressional_view);
 
+        this.getWindow().setStatusBarColor(this.getResources().getColor(R.color.colorPrimary));
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 

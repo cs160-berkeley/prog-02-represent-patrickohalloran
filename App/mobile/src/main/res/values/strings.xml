@@ -5,8 +5,12 @@
     <string name="enter_zip_code">enter your zip code</string>
     <string name="current_location">current Location</string>
     <string name="congressional_title">your congress members</string>
+    <string name="more_info">More Info</string>
 
     <!-- TODO: Remove or change this placeholder text -->
+    <string name="bb_tweet">“Putting the country first means Obama nominating a Justice and the Senate doing its constitutional duty by voting on the nominee.”</string>
+    <string name="df_tweet">The Supreme Court is too important to allow a vacancy longer than a year. #SCOTUS</string>
+    <string name="di_tweet">Moving terrorists from Gitmo to U.S. soil proves Obama is once again willing to set aside the rule of law</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_congressional_view">CongressionalViewActivity</string>
     <string name="action_settings">Settings</string>
