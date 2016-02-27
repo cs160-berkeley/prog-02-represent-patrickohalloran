@@ -5,4 +5,12 @@
     <string name="title_activity_main_view">MainViewActivity</string>
     <string name="action_settings">Settings</string>
     <string name="section_format">Hello World from section: %1$d</string>
+    <string name="more_info">More Info</string>
+
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="bb_tweet">“Putting the country first means Obama nominating a Justice and the Senate doing its constitutional duty by voting on the nominee.”</string>
+    <string name="df_tweet">The Supreme Court is too important to allow a vacancy longer than a year. #SCOTUS</string>
+    <string name="di_tweet">Moving terrorists from Gitmo to U.S. soil proves Obama is once again willing to set aside the rule of law</string>
+
 </resources>

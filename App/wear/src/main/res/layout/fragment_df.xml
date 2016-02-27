@@ -1,0 +1,22 @@
+<android.support.wearable.view.BoxInsetLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@drawable/dianne_feinstein"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent">
+
+    <android.support.wearable.view.CardFrame
+        android:layout_height="wrap_content"
+        android:layout_width="fill_parent"
+        android:layout_gravity="bottom"
+        android:paddingBottom="60dp">
+
+        <TextView
+            android:textAlignment="center"
+            android:fontFamily="sans-serif-light"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:text="Dianne Feinstein"
+            android:textColor="@color/black"
+            android:textSize="20sp"/>
+    </android.support.wearable.view.CardFrame>
+</android.support.wearable.view.BoxInsetLayout>

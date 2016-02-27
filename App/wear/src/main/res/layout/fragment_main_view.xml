@@ -1,4 +1,4 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -6,11 +6,38 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.patrickohalloran.represent.MainViewActivity$PlaceholderFragment">
+    tools:context="com.patrickohalloran.represent.CongressionalViewActivity$PlaceholderFragment"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:id="@+id/pageLayout"
+    android:background="@color/colorPrimaryDark">
 
+    <ImageView
+        android:id="@+id/photo_id"
+        android:layout_width="150dp"
+        android:layout_height="match_parent"
+        android:adjustViewBounds="true"
+        android:src="@drawable/barbara_boxer"/>
+    
     <TextView
-        android:id="@+id/section_label"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_marginTop="?android:attr/actionBarSize"
+        android:textAlignment="center"
+        android:id="@+id/name_id"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Barbara Boxer"
+        android:textSize="18dp"
+        android:textColor="@color/colorWhite"/>
 
-</RelativeLayout>
+    <View
+        android:layout_marginTop="6dp"
+        android:layout_width="fill_parent"
+        android:layout_height="2dip"
+        android:background="@color/colorWhite"></View>
+
+
+
+
+
+
+</LinearLayout>
