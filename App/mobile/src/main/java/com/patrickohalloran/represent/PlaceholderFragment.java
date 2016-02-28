@@ -1,5 +1,6 @@
 package com.patrickohalloran.represent;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -49,4 +50,19 @@ public class PlaceholderFragment extends Fragment {
 //        textView.setText(getString(R.string.section_format, getArguments().getInt(ARG_SECTION_NUMBER)));
         return rootView;
     }
+
+//    public void getDetailedView(View view) {
+//        int id = view.getId();
+//        Intent intent = new Intent(view.getContext(), DetailedViewActivity.class);
+//        String person;
+//        if (id == R.id.bb_button) {
+//            person = "BOXER";
+//        } else if (id == R.id.df_button) {
+//            person = "FEINSTEIN";
+//        } else {
+//            person = "ISSA";
+//        }
+//        intent.putExtra("PERSON", person);
+//        startActivity(intent);
+//    }
 }

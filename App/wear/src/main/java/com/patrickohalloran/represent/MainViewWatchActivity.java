@@ -10,6 +10,10 @@ import android.support.wearable.view.DotsPageIndicator;
 import android.support.wearable.view.FragmentGridPagerAdapter;
 import android.support.wearable.view.GridViewPager;
 
+
+/*
+ * A good deal of this code was inspired from: http://www.learnandroidwear.com/gridviewpager-cardfragment/
+ */
 public class MainViewWatchActivity extends FragmentActivity {
 
     @Override

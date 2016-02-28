@@ -3,7 +3,7 @@
     android:id="@+id/framelayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/dianne_feinstein">
+    android:background="@drawable/darrell_issa">
 
     <android.support.wearable.view.GridViewPager
         android:id="@+id/pager"
@@ -33,7 +33,7 @@
                 android:fontFamily="sans-serif-light"
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent"
-                android:text="Dianne Feinstein"
+                android:text="Darrell Issa"
                 android:textColor="@color/black"
                 android:textSize="20sp"/>
         </android.support.wearable.view.CardFrame>

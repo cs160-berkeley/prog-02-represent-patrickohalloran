@@ -84,13 +84,14 @@
         android:textColor="@color/colorWhite"/>
 
     <Button
+        android:id="@+id/bb_button"
         android:layout_marginTop="30dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/more_info"
         android:background="@color/colorWhite"
         android:textColor="@color/colorPrimaryDark"
-        android:minHeight="30dp"/>
+        android:minHeight="30dp" />
 
 
 

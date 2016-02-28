@@ -1,9 +1,8 @@
-<android.support.wearable.view.BoxInsetLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/framelayout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@drawable/barbara_boxer">
+    android:layout_height="match_parent">
 
     <android.support.wearable.view.GridViewPager
         android:id="@+id/pager"
@@ -16,28 +15,49 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal|bottom" />
 
-    <android.support.wearable.view.CardScrollView
-        android:id="@+id/card_scroll_view"
-        android:layout_height="match_parent"
-        android:layout_width="match_parent"
-        app:layout_box="bottom">
+</FrameLayout>
 
-        <android.support.wearable.view.CardFrame
-            android:layout_height="wrap_content"
-            android:layout_width="fill_parent"
-            android:paddingBottom="60dp"
-            android:layout_gravity="bottom">
 
-            <TextView
-                android:textAlignment="center"
-                android:fontFamily="sans-serif-light"
-                android:layout_height="wrap_content"
-                android:layout_width="match_parent"
-                android:text="Barbara Boxer"
-                android:textColor="@color/black"
-                android:textSize="20sp"/>
-        </android.support.wearable.view.CardFrame>
+<!--<android.support.wearable.view.BoxInsetLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+    <!--xmlns:app="http://schemas.android.com/apk/res-auto"-->
+    <!--android:id="@+id/framelayout"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"-->
+    <!--android:background="@drawable/barbara_boxer">-->
 
-    </android.support.wearable.view.CardScrollView>
+    <!--<android.support.wearable.view.GridViewPager-->
+        <!--android:id="@+id/pager"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent" />-->
 
-</android.support.wearable.view.BoxInsetLayout>
+    <!--<android.support.wearable.view.DotsPageIndicator-->
+        <!--android:id="@+id/page_indicator"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_gravity="center_horizontal|bottom" />-->
+
+    <!--<android.support.wearable.view.CardScrollView-->
+        <!--android:id="@+id/card_scroll_view"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:layout_width="match_parent"-->
+        <!--app:layout_box="bottom">-->
+
+        <!--<android.support.wearable.view.CardFrame-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_width="fill_parent"-->
+            <!--android:paddingBottom="60dp"-->
+            <!--android:layout_gravity="bottom">-->
+
+            <!--<TextView-->
+                <!--android:textAlignment="center"-->
+                <!--android:fontFamily="sans-serif-light"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:text="Barbara Boxer"-->
+                <!--android:textColor="@color/black"-->
+                <!--android:textSize="20sp"/>-->
+        <!--</android.support.wearable.view.CardFrame>-->
+
+    <!--</android.support.wearable.view.CardScrollView>-->
+
+<!--</android.support.wearable.view.BoxInsetLayout>-->

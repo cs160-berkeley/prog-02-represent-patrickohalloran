@@ -84,6 +84,7 @@
         android:textColor="@color/colorWhite"/>
 
     <Button
+        android:id="@+id/di_button"
         android:layout_marginTop="30dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

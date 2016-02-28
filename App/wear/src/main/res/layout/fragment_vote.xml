@@ -3,7 +3,7 @@
     android:id="@+id/framelayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/dianne_feinstein">
+    android:background="@color/colorPrimary">
 
     <android.support.wearable.view.GridViewPager
         android:id="@+id/pager"
@@ -15,6 +15,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal|bottom" />
+
+    <TextView
+        android:layout_gravity="center"
+        android:textAlignment="center"
+        android:fontFamily="sans-serif-light"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:text="@string/vote_stats"
+        android:textColor="@color/black"
+        android:textSize="12dp" />
 
     <android.support.wearable.view.CardScrollView
         android:id="@+id/card_scroll_view"
@@ -33,9 +43,9 @@
                 android:fontFamily="sans-serif-light"
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent"
-                android:text="Dianne Feinstein"
+                android:text="2012 Presidential Vote"
                 android:textColor="@color/black"
-                android:textSize="20sp"/>
+                android:textSize="12dp"/>
         </android.support.wearable.view.CardFrame>
 
     </android.support.wearable.view.CardScrollView>

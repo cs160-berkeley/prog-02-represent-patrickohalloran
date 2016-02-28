@@ -41,16 +41,16 @@ public class PlaceholderFragment extends Fragment {
         int row = getArguments().getInt(ROW);
         int col = getArguments().getInt(COL);
         int layout_int;
-        layout_int = R.layout.activity_main_view_watch;
-//        if (col == 0) {
-//            layout_int = R.layout.fragment_di_congressional;
-//        } else if (col == 2) {
-//            layout_int = R.layout.fragment_bb_congressional;
-//        } else if (col == 3){
-//            layout_int = R.layout.fragment_df_congressional;
-//        } else {
-//            layout_int =
-//        }
+        //layout_int = R.layout.fragment_bb;
+        if (col == 0) {
+            layout_int = R.layout.fragment_vote;
+        } else if (col == 1) {
+            layout_int = R.layout.fragment_bb;
+        } else if (col == 2){
+            layout_int = R.layout.fragment_df;
+        } else {
+            layout_int = R.layout.fragment_di;
+        }
         View rootView = inflater.inflate(layout_int, container, false);
 //        TextView textView = (TextView) rootView.findViewById(R.id.section_label);
 //        textView.setText(getString(R.string.section_format, getArguments().getInt(ARG_SECTION_NUMBER)));
