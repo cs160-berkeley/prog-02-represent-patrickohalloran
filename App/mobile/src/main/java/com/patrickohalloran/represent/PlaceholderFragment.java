@@ -53,7 +53,7 @@ public class PlaceholderFragment extends Fragment {
 
 //    public void getDetailedView(View view) {
 //        int id = view.getId();
-//        Intent intent = new Intent(view.getContext(), DetailedViewActivity.class);
+//        Intent intent = new Intent(getActivity(), DetailedViewActivity.class);
 //        String person;
 //        if (id == R.id.bb_button) {
 //            person = "BOXER";

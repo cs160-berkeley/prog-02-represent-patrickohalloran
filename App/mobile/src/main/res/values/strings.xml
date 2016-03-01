@@ -6,11 +6,17 @@
     <string name="current_location">current Location</string>
     <string name="congressional_title">your congress members</string>
     <string name="more_info">More Info</string>
+    <string name="republican">Republican</string>
+    <string name="democrat">Democrat</string>
+    <string name="committees_in">Committees currently on</string>
+    <string name="bills_title">Bills recently sponsored</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="bb_tweet">“Putting the country first means Obama nominating a Justice and the Senate doing its constitutional duty by voting on the nominee.”</string>
     <string name="df_tweet">The Supreme Court is too important to allow a vacancy longer than a year. #SCOTUS</string>
     <string name="di_tweet">Moving terrorists from Gitmo to U.S. soil proves Obama is once again willing to set aside the rule of law</string>
+    <string name="bills">S. 2487: Female Veteran Suicide Prevention Act \n S. 2412: Tule Lake National Historic Site Establishment Act of 2015 \n S. 2204: End of Suffering Act of 2015</string>
+    <string name="committees">Committee on Commerce, Science and Transportation, \n More committees \n Other committees</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_congressional_view">CongressionalViewActivity</string>
     <string name="action_settings">Settings</string>

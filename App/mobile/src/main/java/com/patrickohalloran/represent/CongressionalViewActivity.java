@@ -147,4 +147,19 @@ public class CongressionalViewActivity extends AppCompatActivity {
             return null;
         }
     }
+
+    public void getDetailedView(View view) {
+        int id = view.getId();
+        Intent intent = new Intent(this, DetailedViewActivity.class);
+        String person;
+        if (id == R.id.bb_button) {
+            person = "BOXER";
+        } else if (id == R.id.df_button) {
+            person = "FEINSTEIN";
+        } else {
+            person = "ISSA";
+        }
+        intent.putExtra("PERSON", person);
+        startActivity(intent);
+    }
 }

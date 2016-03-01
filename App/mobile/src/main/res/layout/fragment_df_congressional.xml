@@ -91,7 +91,8 @@
         android:text="@string/more_info"
         android:background="@color/colorWhite"
         android:textColor="@color/colorPrimaryDark"
-        android:minHeight="30dp"/>
+        android:minHeight="30dp"
+        android:onClick="getDetailedView"/>
 
 
 
