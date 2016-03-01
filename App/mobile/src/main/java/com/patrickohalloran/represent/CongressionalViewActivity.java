@@ -160,6 +160,7 @@ public class CongressionalViewActivity extends AppCompatActivity {
             person = "ISSA";
         }
         intent.putExtra("PERSON", person);
+        intent.putExtra("SOURCE", "congressional_view");
         startActivity(intent);
     }
 }

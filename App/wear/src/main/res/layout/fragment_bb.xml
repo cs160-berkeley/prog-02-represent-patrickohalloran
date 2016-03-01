@@ -29,6 +29,7 @@
             android:layout_gravity="bottom">
 
             <TextView
+                android:id="@+id/congress_member_name"
                 android:textAlignment="center"
                 android:fontFamily="sans-serif-light"
                 android:layout_height="wrap_content"
