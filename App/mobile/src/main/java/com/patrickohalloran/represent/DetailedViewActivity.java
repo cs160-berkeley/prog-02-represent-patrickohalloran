@@ -13,9 +13,9 @@ public class DetailedViewActivity extends Activity {
         super.onCreate(savedInstanceState);
         Intent intent = getIntent();
         String person = intent.getStringExtra("PERSON");
-        if (person.equals("BOXER")) {
+        if (person.equals("1")) {
             setContentView(R.layout.bb_detailed_view);
-        } else if (person.equals("FEINSTEIN")) {
+        } else if (person.equals("2")) {
             setContentView(R.layout.df_detailed_view);
         } else {
             setContentView(R.layout.di_detailed_view);

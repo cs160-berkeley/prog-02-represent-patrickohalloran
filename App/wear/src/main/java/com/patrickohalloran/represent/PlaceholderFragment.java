@@ -23,6 +23,7 @@ public class PlaceholderFragment extends Fragment{
     private static final String ROW = "row_number";
     private static final String COL = "col_number";
     private View _view;
+    private int _col;
 
 
     public PlaceholderFragment() {
@@ -46,6 +47,7 @@ public class PlaceholderFragment extends Fragment{
                              Bundle savedInstanceState) {
         int row = getArguments().getInt(ROW);
         int col = getArguments().getInt(COL);
+        this._col = col;
         int layout_int;
         //layout_int = R.layout.fragment_bb;
         if (col == 0) {
@@ -66,13 +68,15 @@ public class PlaceholderFragment extends Fragment{
 //
 //                Toast toast = Toast.makeText(context, "BRUHHHHHHH", duration);
 //                toast.show();
-                Activity currActivity = (Activity) v.getContext();
-                TextView nameView = (TextView) currActivity.findViewById(R.id.congress_member_name);
-                System.out.println("YEEEEESSSSSS");
-                String nameString = nameView.getText().toString();
-                Intent sendIntent = new Intent(getActivity().getBaseContext(), WatchToPhoneService.class);
-                sendIntent.putExtra("PERSON", nameString);
-                getActivity().startService(sendIntent);
+//                Activity currActivity = (Activity) v.getContext();
+//                TextView nameView = (TextView) currActivity.findViewById(R.id.congress_member_name);
+//                System.out.println("YEEEEESSSSSS");
+//                String nameString = nameView.getText().toString();
+                if (_col != 0) {
+                    Intent sendIntent = new Intent(getActivity().getBaseContext(), WatchToPhoneService.class);
+                    sendIntent.putExtra("PERSON", Integer.toString(_col));
+                    getActivity().startService(sendIntent);
+                }
             }
         });
         this._view = rootView;

@@ -20,6 +20,7 @@ import com.google.android.gms.wearable.NodeApi;
 import com.google.android.gms.wearable.Wearable;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Set;
 
@@ -30,7 +31,8 @@ public class WatchToPhoneService extends Service implements GoogleApiClient.Conn
 
     private GoogleApiClient mWatchApiClient;
     private List<Node> nodes = new ArrayList<>();
-    final Service _this = this;
+    private final Service _this = this;
+    private String _person;
 
     @Override
     public void onCreate() {
@@ -41,7 +43,7 @@ public class WatchToPhoneService extends Service implements GoogleApiClient.Conn
                 .addConnectionCallbacks(this)
                 .build();
         //and actually connect it
-        mWatchApiClient.connect();
+        //mWatchApiClient.connect();
     }
 
     @Override
@@ -50,6 +52,14 @@ public class WatchToPhoneService extends Service implements GoogleApiClient.Conn
         mWatchApiClient.disconnect();
     }
 
+    @Override
+    public int onStartCommand(Intent intent, int flags, int startId) {
+        Bundle args = intent.getExtras();
+        String person = args.getString("PERSON");
+        this._person = person;
+        mWatchApiClient.connect();
+        return START_STICKY;
+    }
 
     @Override
     public IBinder onBind(Intent intent) {
@@ -67,7 +77,7 @@ public class WatchToPhoneService extends Service implements GoogleApiClient.Conn
                         Log.d("T", "found nodes");
                         //when we find a connected node, we populate the list declared above
                         //finally, we can send a message
-                        sendMessage("/getDetailedView", "BOXER");
+                        sendMessage("/getDetailedView", _person);
                         Log.d("T", "sent");
                         _this.stopSelf();
                     }

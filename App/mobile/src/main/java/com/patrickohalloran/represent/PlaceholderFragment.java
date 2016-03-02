@@ -38,12 +38,12 @@ public class PlaceholderFragment extends Fragment {
                              Bundle savedInstanceState) {
         int person = getArguments().getInt(ARG_SECTION_NUMBER);
         int layout_int;
-        if (person == 3) {
-            layout_int = R.layout.fragment_di_congressional;
-        } else if (person == 2) {
+        if (person == 1) {
             layout_int = R.layout.fragment_bb_congressional;
-        } else {
+        } else if (person == 2) {
             layout_int = R.layout.fragment_df_congressional;
+        } else {
+            layout_int = R.layout.fragment_di_congressional;
         }
         View rootView = inflater.inflate(layout_int, container, false);
 //        TextView textView = (TextView) rootView.findViewById(R.id.section_label);

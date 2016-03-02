@@ -63,7 +63,7 @@ public class PhoneToWatchService extends Service {
                 sendMessage("/" + catName, catName);
             }
         }).start();
-        //_this.stopSelf();
+//        _this.stopSelf();
 
         return START_STICKY;
     }
