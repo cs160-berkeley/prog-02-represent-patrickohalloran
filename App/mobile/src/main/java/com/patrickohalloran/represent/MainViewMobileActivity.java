@@ -13,6 +13,11 @@ public class MainViewMobileActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main_view_mobile);
     }
 
+    public void enterZipCode(View view) {
+        Intent intent = new Intent(this, EnterZipCodeActivity.class);
+        startActivity(intent);
+    }
+
     public void getCongressMembers(View view) {
         Intent intent = new Intent(this, CongressionalViewActivity.class);
         startActivity(intent);

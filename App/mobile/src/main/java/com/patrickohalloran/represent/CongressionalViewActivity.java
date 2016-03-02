@@ -153,11 +153,11 @@ public class CongressionalViewActivity extends AppCompatActivity {
         Intent intent = new Intent(this, DetailedViewActivity.class);
         String person;
         if (id == R.id.bb_button) {
-            person = "0";
-        } else if (id == R.id.df_button) {
             person = "1";
-        } else {
+        } else if (id == R.id.df_button) {
             person = "2";
+        } else {
+            person = "3";
         }
         intent.putExtra("PERSON", person);
         intent.putExtra("SOURCE", "congressional_view");

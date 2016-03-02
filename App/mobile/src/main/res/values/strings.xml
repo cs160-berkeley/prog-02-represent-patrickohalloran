@@ -10,6 +10,7 @@
     <string name="democrat">Democrat</string>
     <string name="committees_in">Committees currently on</string>
     <string name="bills_title">Bills recently sponsored</string>
+    <string name="enter_zip_button">Find your congress members</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="bb_tweet">“Putting the country first means Obama nominating a Justice and the Senate doing its constitutional duty by voting on the nominee.”</string>

@@ -46,7 +46,7 @@
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
             android:textAllCaps="false"
-            android:onClick="getCongressMembers"/>
+            android:onClick="enterZipCode"/>
 
         <TextView
             android:layout_marginTop="20dp"
