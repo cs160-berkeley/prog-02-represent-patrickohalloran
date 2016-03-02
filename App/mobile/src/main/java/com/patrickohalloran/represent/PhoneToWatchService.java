@@ -18,14 +18,17 @@ import com.google.android.gms.wearable.Wearable;
 public class PhoneToWatchService extends Service {
 
     private GoogleApiClient mApiClient;
+    final Service _this = this;
+
 
     @Override
     public void onCreate() {
         super.onCreate();
         //initialize the googleAPIClient for message passing
         mApiClient = new GoogleApiClient.Builder( this )
-                .addApi( Wearable.API )
+                .addApi(Wearable.API)
                 .addConnectionCallbacks(new GoogleApiClient.ConnectionCallbacks() {
+
                     @Override
                     public void onConnected(Bundle connectionHint) {
                     }
@@ -60,6 +63,7 @@ public class PhoneToWatchService extends Service {
                 sendMessage("/" + catName, catName);
             }
         }).start();
+        //_this.stopSelf();
 
         return START_STICKY;
     }
