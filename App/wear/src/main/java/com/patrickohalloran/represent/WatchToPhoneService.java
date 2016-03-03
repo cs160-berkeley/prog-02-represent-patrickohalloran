@@ -32,7 +32,8 @@ public class WatchToPhoneService extends Service implements GoogleApiClient.Conn
     private GoogleApiClient mWatchApiClient;
     private List<Node> nodes = new ArrayList<>();
     private final Service _this = this;
-    private String _person;
+    private String _path;
+    private String _data;
 
     @Override
     public void onCreate() {
@@ -55,8 +56,13 @@ public class WatchToPhoneService extends Service implements GoogleApiClient.Conn
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         Bundle args = intent.getExtras();
-        String person = args.getString("PERSON");
-        this._person = person;
+        if (args.containsKey("PERSON")) {
+            _data = args.getString("PERSON");
+            _path = "/getDetailedView";
+        } else {
+            _data = args.getString("LOCATION");
+            _path = "/getRandomViews";
+        }
         mWatchApiClient.connect();
         return START_STICKY;
     }
@@ -77,7 +83,7 @@ public class WatchToPhoneService extends Service implements GoogleApiClient.Conn
                         Log.d("T", "found nodes");
                         //when we find a connected node, we populate the list declared above
                         //finally, we can send a message
-                        sendMessage("/getDetailedView", _person);
+                        sendMessage(_path, _data);
                         Log.d("T", "sent");
                         _this.stopSelf();
                     }

@@ -3,6 +3,7 @@ package com.patrickohalloran.represent;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
@@ -14,7 +15,12 @@ import android.support.wearable.view.CardFragment;
 import android.support.wearable.view.DotsPageIndicator;
 import android.support.wearable.view.FragmentGridPagerAdapter;
 import android.support.wearable.view.GridViewPager;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import java.util.Random;
 
 
 /*
@@ -125,9 +131,11 @@ public class MainViewWatchActivity extends FragmentActivity implements SensorEve
                     long totalDuration = now - mFirstDirectionChangeTime;
                     if (totalDuration < MAX_TOTAL_DURATION_OF_SHAKE) {
 //                        mShakeListener.onShake();
-                        Toast toast = Toast.makeText(getApplicationContext(), "Device has shaken.", Toast.LENGTH_LONG);
-                        toast.show();
+//                        Toast toast = Toast.makeText(getApplicationContext(), "Device has shaken.", Toast.LENGTH_LONG);
+//                        toast.show();
                         resetShakeParameters();
+
+                        randomLocation();
                     }
                 }
 
@@ -135,6 +143,24 @@ public class MainViewWatchActivity extends FragmentActivity implements SensorEve
                 resetShakeParameters();
             }
         }
+    }
+
+    public void randomLocation() {
+        int westBound = 122;
+        int eastBound = 74;
+        int northBound = 40;
+        int southBound = 32;
+        Random rand = new Random();
+        int lat = rand.nextInt((westBound - eastBound) + 1) + eastBound;
+        int lon = rand.nextInt((northBound - southBound) + 1) + southBound;
+        String location = "Location:(" + Integer.toString(lat) + ", " + Integer.toString(lon) + ")";
+        LayoutInflater inflater = (LayoutInflater)getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        TextView stats = (TextView) findViewById(R.id.vote_stats);
+        stats.setText(R.string.vote_stats2);
+        inflater.inflate(R.layout.fragment_vote, null);
+        Intent sendIntent = new Intent(this, WatchToPhoneService.class);
+        sendIntent.putExtra("LOCATION", location);
+        startService(sendIntent);
     }
 
     /**

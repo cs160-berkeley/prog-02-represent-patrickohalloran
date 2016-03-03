@@ -17,6 +17,7 @@
         android:layout_gravity="center_horizontal|bottom" />
 
     <TextView
+        android:id="@+id/vote_stats"
         android:layout_gravity="center"
         android:textAlignment="center"
         android:fontFamily="sans-serif-light"

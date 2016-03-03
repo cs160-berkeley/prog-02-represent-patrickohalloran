@@ -20,6 +20,7 @@ public class PhoneListenerService extends WearableListenerService {
 
     //   WearableListenerServices don't need an iBinder or an onStartCommand: they just need an onMessageReceieved.
     private static final String DETAILED = "/getDetailedView";
+    private static final String RANDOM_LOCATION = "/getRandomViews";
 
     @Override
     public void onMessageReceived(MessageEvent messageEvent) {
@@ -40,6 +41,14 @@ public class PhoneListenerService extends WearableListenerService {
             //''sending message to a Handler on a dead thread''... that's okay. but don't do this.
             // replace sending a toast with, like, starting a new activity or something.
             // who said skeleton code is untouchable? #breakCSconceptions
+
+        } else if (messageEvent.getPath().equalsIgnoreCase(RANDOM_LOCATION)) {
+            Intent sendIntent = new Intent(this, CongressionalViewActivity.class);
+            sendIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(sendIntent);
+            String location = new String(messageEvent.getData(), StandardCharsets.UTF_8);
+            Toast toast = Toast.makeText(getApplicationContext(), location, Toast.LENGTH_LONG);
+            toast.show();
 
         } else {
             Context context = getApplicationContext();
