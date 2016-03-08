@@ -20,6 +20,18 @@ import android.view.ViewGroup;
 
 import android.widget.TextView;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.BufferedInputStream;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.net.URLConnection;
+
 public class CongressionalViewActivity extends AppCompatActivity {
 
     /**
@@ -38,9 +50,18 @@ public class CongressionalViewActivity extends AppCompatActivity {
     private ViewPager mViewPager;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_congressional_view);
+
+        Intent httpIntent = new Intent(this, HTTPActivity.class);
+        startActivity(httpIntent);
+
+//        try {
+//            parseURL("congress.api.sunlightfoundation.com/legislators/locate?latitude=37&longitude=-122&apikey=391dab8747c74ab2bc6bffc5357d81bd");
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
 
         this.getWindow().setStatusBarColor(this.getResources().getColor(R.color.colorPrimary));
 
@@ -147,6 +168,29 @@ public class CongressionalViewActivity extends AppCompatActivity {
             return null;
         }
     }
+
+//    private JSONObject parseURL(String inputUrl) throws IOException{
+//        URL url = new URL(inputUrl);
+//        HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
+//        try {
+//            String result = null;
+//            InputStream in = new BufferedInputStream(urlConnection.getInputStream());
+//            BufferedReader reader = new BufferedReader(new InputStreamReader(in, "UTF-8"), 8);
+//            StringBuilder sb = new StringBuilder();
+//            String line = null;
+//            while ((line = reader.readLine()) != null) {
+//                sb.append(line + "\n");
+//            }
+//            result = sb.toString();
+//            JSONObject JSONresult = new JSONObject(result);
+//            return JSONresult;
+//        } catch (JSONException e) {
+//            e.printStackTrace();
+//        } finally {
+//            urlConnection.disconnect();
+//        }
+//        return null;
+//    }
 
     public void getDetailedView(View view) {
         int id = view.getId();

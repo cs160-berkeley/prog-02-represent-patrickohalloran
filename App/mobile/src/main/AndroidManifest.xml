@@ -48,7 +48,8 @@
         <activity
             android:name=".EnterZipCodeActivity"
             android:theme="@style/NoActionBar" />
-        <activity android:name=".GPSActivity"></activity>
+        <activity android:name=".GPSActivity" />
+        <activity android:name=".HTTPActivity"></activity>
     </application>
 
 </manifest>
