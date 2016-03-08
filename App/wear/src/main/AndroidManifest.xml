@@ -29,6 +29,10 @@
             </intent-filter>
         </service>
 
+        <!-- Permission to go on internet-->
+        <uses-permission
+            android:name="android.permission.INTERNET"/>
+
     </application>
 
 </manifest>

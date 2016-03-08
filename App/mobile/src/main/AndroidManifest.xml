@@ -2,6 +2,13 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.patrickohalloran.represent">
 
+    <!-- Permission to go on internet -->
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <!-- Permission to access current location -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -30,12 +37,18 @@
             </intent-filter>
         </service>
 
+        <!-- API key -->
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyAGL9f4SkPBuvw2vKQx-TKS3LkEkqxINCI" />
+
         <activity
             android:name=".DetailedViewActivity"
             android:theme="@style/NoActionBar" />
         <activity
             android:name=".EnterZipCodeActivity"
-            android:theme="@style/NoActionBar"></activity>
+            android:theme="@style/NoActionBar" />
+        <activity android:name=".GPSActivity"></activity>
     </application>
 
 </manifest>
