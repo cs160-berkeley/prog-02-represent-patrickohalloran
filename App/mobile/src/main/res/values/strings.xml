@@ -14,6 +14,7 @@
     <string name="latitude">LAT</string>
     <string name="longitude">LON</string>
     <string name="zip_code">zip code</string>
+    <string name="sunlight_API_key">391dab8747c74ab2bc6bffc5357d81bd</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="bb_tweet">“Putting the country first means Obama nominating a Justice and the Senate doing its constitutional duty by voting on the nominee.”</string>
