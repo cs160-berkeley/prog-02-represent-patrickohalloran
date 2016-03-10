@@ -1,11 +1,14 @@
 package com.patrickohalloran.represent;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 /**
@@ -25,10 +28,16 @@ public class PlaceholderFragment extends Fragment {
      * Returns a new instance of this fragment for the given section
      * number.
      */
-    public static PlaceholderFragment newInstance(int sectionNumber) {
+    public static PlaceholderFragment newInstance(int sectionNumber, String[] memInfo) {
         PlaceholderFragment fragment = new PlaceholderFragment();
         Bundle args = new Bundle();
         args.putInt(ARG_SECTION_NUMBER, sectionNumber);
+        args.putString("firstName", memInfo[0]);
+        args.putString("lastName", memInfo[1]);
+        args.putString("website", memInfo[2]);
+        args.putString("email", memInfo[3]);
+        args.putString("title", memInfo[4]);
+        args.putString("party", memInfo[5]);
         fragment.setArguments(args);
         return fragment;
     }
@@ -36,19 +45,35 @@ public class PlaceholderFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        int person = getArguments().getInt(ARG_SECTION_NUMBER);
-        int layout_int;
-        if (person == 1) {
-            layout_int = R.layout.fragment_bb_congressional;
-        } else if (person == 2) {
-            layout_int = R.layout.fragment_df_congressional;
+        Bundle args = getArguments();
+        int person = args.getInt(ARG_SECTION_NUMBER);
+        int layout_int = R.layout.fragment_template;
+
+        View view = inflater.inflate(layout_int, container, false);
+
+        //set background color
+        LinearLayout ll = (LinearLayout) view.findViewById(R.id.background_id);
+        if (args.getString("party").equals("D")) {
+            ll.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
+        } else if (args.getString("party").equals("R")) {
+            ll.setBackgroundColor(getResources().getColor(R.color.colorAccent));
         } else {
-            layout_int = R.layout.fragment_di_congressional;
+            ll.setBackgroundColor(getResources().getColor(R.color.colorWhite));
         }
-        View rootView = inflater.inflate(layout_int, container, false);
-//        TextView textView = (TextView) rootView.findViewById(R.id.section_label);
-//        textView.setText(getString(R.string.section_format, getArguments().getInt(ARG_SECTION_NUMBER)));
-        return rootView;
+
+        //Set the name
+        TextView nameView = (TextView) view.findViewById(R.id.name_id);
+        nameView.setText(args.getString("firstName") + " " + args.getString("lastName"));
+
+        //set the email
+        TextView emailView = (TextView) view.findViewById(R.id.email_id);
+        emailView.setText(args.getString("email"));
+
+        //set the website
+        TextView websiteView = (TextView) view.findViewById(R.id.website_id);
+        websiteView.setText(args.getString("website"));
+
+        return view;
     }
 
 //    public void getDetailedView(View view) {

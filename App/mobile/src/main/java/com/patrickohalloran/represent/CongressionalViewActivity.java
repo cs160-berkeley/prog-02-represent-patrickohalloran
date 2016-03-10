@@ -92,7 +92,7 @@ public class CongressionalViewActivity extends AppCompatActivity {
         //trying to set tabs here
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tab_layout);
         for (String[] member : memberInfo) {
-            tabLayout.addTab(tabLayout.newTab().setText(member[4]));
+            tabLayout.addTab(tabLayout.newTab().setText(member[1]));
         }
         tabLayout.setSelectedTabIndicatorColor(getResources().getColor(R.color.colorBlack));
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
@@ -267,7 +267,7 @@ public class CongressionalViewActivity extends AppCompatActivity {
         public Fragment getItem(int position) {
             // getItem is called to instantiate the fragment for the given page.
             // Return a PlaceholderFragment (defined as a static inner class below).
-            return PlaceholderFragment.newInstance(position + 1);
+            return PlaceholderFragment.newInstance(position, memberInfo.get(position));
         }
 
         @Override

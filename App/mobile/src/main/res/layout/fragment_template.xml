@@ -19,6 +19,7 @@
         android:id="@+id/name_id"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:text="BEFORE"
         android:textSize="36dp"
         android:textColor="@color/colorWhite"/>
 
