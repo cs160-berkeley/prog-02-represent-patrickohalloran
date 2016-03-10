@@ -24,9 +24,9 @@ public class EnterZipCodeActivity extends Activity {
             Intent intent = new Intent(this, CongressionalViewActivity.class);
             intent.putExtra(getString(R.string.zip_code), zipString);
             startActivity(intent);
-            Intent sendIntent = new Intent(getBaseContext(), PhoneToWatchService.class);
-            sendIntent.putExtra("CAT_NAME", "Fred");
-            startService(sendIntent);
+//            Intent sendIntent = new Intent(getBaseContext(), PhoneToWatchService.class);
+//            sendIntent.putExtra("CAT_NAME", "Fred");
+//            startService(sendIntent);
         } else {
             //Context context = getActivity();
             int duration = Toast.LENGTH_SHORT;

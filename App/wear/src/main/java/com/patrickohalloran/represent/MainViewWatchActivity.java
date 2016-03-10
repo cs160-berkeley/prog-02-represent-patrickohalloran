@@ -93,9 +93,8 @@ public class MainViewWatchActivity extends FragmentActivity implements SensorEve
         final DotsPageIndicator mPageIndicator;
         final GridViewPager mViewPager;
 
-        final String[][] data = {
-                { "Row 0, Col 0", "Row 0, Col 1", "Row 0, Col 2", "Row 0, Col 3" }
-        };
+        String[] innerData = new String[memberInfo.size() + 1];
+        final String[][] data = {innerData};
 
         // Get UI references
         mPageIndicator = (DotsPageIndicator) findViewById(R.id.page_indicator);
@@ -208,7 +207,7 @@ public class MainViewWatchActivity extends FragmentActivity implements SensorEve
         mSensorManager.unregisterListener(this);
     }
 
-    private static final class GridPagerAdapter extends FragmentGridPagerAdapter {
+    public class GridPagerAdapter extends FragmentGridPagerAdapter {
 
         String[][] mData;
 
@@ -219,9 +218,10 @@ public class MainViewWatchActivity extends FragmentActivity implements SensorEve
 
         @Override
         public Fragment getFragment(int row, int column) {
-            return PlaceholderFragment.newInstance(row, column);
-//            Fragment cardFrag = CardFragment.create("CardFragment", mData[row][column]);
-//            return cardFrag;
+            if (column < memberInfo.size()) {
+                return PlaceholderFragment.newInstance(row, column, memberInfo.get(column), false);
+            }
+            return PlaceholderFragment.newInstance(row, column, memberInfo.get(0), true);
         }
 
         @Override
