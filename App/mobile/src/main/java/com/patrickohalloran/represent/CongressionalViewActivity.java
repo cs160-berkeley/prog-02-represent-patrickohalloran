@@ -25,6 +25,7 @@ import android.view.ViewGroup;
 
 import android.widget.TextView;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -36,6 +37,7 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLConnection;
+import java.util.ArrayList;
 
 public class CongressionalViewActivity extends AppCompatActivity {
 
@@ -58,6 +60,8 @@ public class CongressionalViewActivity extends AppCompatActivity {
     private String zipCode;
     private String lat;
     private String lon;
+
+    private ArrayList<String[]> memberInfo;
 
 
     @Override
@@ -170,7 +174,28 @@ public class CongressionalViewActivity extends AppCompatActivity {
         @Override
         protected void onPostExecute(String result) {
             //textView.setText(result);
-            Log.d(DEBUG_TAG, result);
+            Log.d("BROOOOOO", result);
+            JSONObject json = null;
+            try {
+                json = new JSONObject(result);
+                ArrayList<String[]> memberData = new ArrayList<String[]>();
+                JSONArray members = json.optJSONArray("results");
+                for (int i=0; i < members.length(); i++) {
+                    JSONObject currMember = members.getJSONObject(i);
+                    String firstName = currMember.getString("first_name");
+                    String lastName = currMember.getString("last_name");
+                    String website = currMember.getString("website");
+                    String email = currMember.getString("oc_email");
+                    String title = currMember.getString("title");
+                    String party = currMember.getString("party");
+                    String[] entry = {firstName, lastName, website, email, title, party};
+                    memberData.add(entry);
+                }
+                memberInfo = memberData;
+
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
         }
     }
 
