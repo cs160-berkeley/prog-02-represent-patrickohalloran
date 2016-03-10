@@ -2,14 +2,20 @@ package com.patrickohalloran.represent;
 
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
+import android.media.Image;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import java.io.InputStream;
+import java.net.URL;
 
 /**
  * Created by patrickohalloran on 2/21/16.
@@ -38,6 +44,7 @@ public class PlaceholderFragment extends Fragment {
         args.putString("email", memInfo[3]);
         args.putString("title", memInfo[4]);
         args.putString("party", memInfo[5]);
+        args.putString("bioguide", memInfo[6]);
         fragment.setArguments(args);
         return fragment;
     }
@@ -73,7 +80,24 @@ public class PlaceholderFragment extends Fragment {
         TextView websiteView = (TextView) view.findViewById(R.id.website_id);
         websiteView.setText(args.getString("website"));
 
+        //set the image
+        Drawable img = LoadImageFromWebOperations("https://theunitedstates.io/images/congress/450x550/"
+                + args.getString("bioguide")
+                +".jpg");
+        ImageView photoView = (ImageView) view.findViewById(R.id.photo_id);
+        photoView.setImageDrawable(img);
+
         return view;
+    }
+
+    public static Drawable LoadImageFromWebOperations(String url) {
+        try {
+            InputStream is = (InputStream) new URL(url).getContent();
+            Drawable d = Drawable.createFromStream(is, "src name");
+            return d;
+        } catch (Exception e) {
+            return null;
+        }
     }
 
 //    public void getDetailedView(View view) {

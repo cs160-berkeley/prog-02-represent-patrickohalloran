@@ -122,6 +122,26 @@ public class CongressionalViewActivity extends AppCompatActivity {
 
             }
         });
+        String watchMessage = makeMessage(memberInfo);
+        Intent sendIntent = new Intent(getBaseContext(), PhoneToWatchService.class);
+        sendIntent.putExtra("CONGRESS_DATA", watchMessage);
+        startService(sendIntent);
+    }
+
+    //creates the huge string that has all of the member info and passes it to the watch
+    //through phone service
+    public String makeMessage(ArrayList<String[]> memberData) {
+        StringBuilder messageBuilder = new StringBuilder();
+        for (String[] member : memberData) {
+            for (int i=0; i < member.length; i++) {
+                if (i == (member.length - 1)) {
+                    messageBuilder.append(member[i] + ";");
+                } else {
+                    messageBuilder.append(member[i] + ",");
+                }
+            }
+        }
+        return messageBuilder.toString();
     }
 
     // Before attempting to fetch the URL, makes sure that there is a network connection.
@@ -183,7 +203,8 @@ public class CongressionalViewActivity extends AppCompatActivity {
                     String email = currMember.getString("oc_email");          //3
                     String title = currMember.getString("title");             //4
                     String party = currMember.getString("party");             //5
-                    String[] entry = {firstName, lastName, website, email, title, party};
+                    String bioguide = currMember.getString("bioguide_id");    //6
+                    String[] entry = {firstName, lastName, website, email, title, party, bioguide};
                     memberData.add(entry);
                 }
                 memberInfo = memberData;

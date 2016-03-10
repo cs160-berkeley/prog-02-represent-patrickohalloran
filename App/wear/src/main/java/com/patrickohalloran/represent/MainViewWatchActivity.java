@@ -20,6 +20,7 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 
@@ -64,11 +65,26 @@ public class MainViewWatchActivity extends FragmentActivity implements SensorEve
     /** The last z position. */
     private float lastZ = 0;
 
+    //data structure that contains all of the member data
+    private ArrayList<String[]> memberInfo = new ArrayList<String[]>();
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_view_watch);
+
+
+        Intent intent = getIntent();
+        String memberData = intent.getStringExtra("CONGRESS_DATA");
+        String[] rows = memberData.split(";");
+        String[][] matrix = new String[rows.length][];
+        for (String row : rows) {
+            memberInfo.add(row.split(","));
+        }
+
+
 
         //set up sensor manager
         mSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
