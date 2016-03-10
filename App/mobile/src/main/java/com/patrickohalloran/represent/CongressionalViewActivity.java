@@ -81,23 +81,19 @@ public class CongressionalViewActivity extends AppCompatActivity {
             myClickHandler(false);
         }
 
+    }
 
-//        try {
-//            parseURL("congress.api.sunlightfoundation.com/legislators/locate?latitude=37&longitude=-122&apikey=391dab8747c74ab2bc6bffc5357d81bd");
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-
+    //populate the tab headers and finish creating fragment layout
+    public void finishOnCreate() {
         this.getWindow().setStatusBarColor(this.getResources().getColor(R.color.colorPrimary));
-
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         //trying to set tabs here
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tab_layout);
-        tabLayout.addTab(tabLayout.newTab().setText("Sen"));
-        tabLayout.addTab(tabLayout.newTab().setText("Sen"));
-        tabLayout.addTab(tabLayout.newTab().setText("Rep"));
+        for (String[] member : memberInfo) {
+            tabLayout.addTab(tabLayout.newTab().setText(member[4]));
+        }
         tabLayout.setSelectedTabIndicatorColor(getResources().getColor(R.color.colorBlack));
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
 
@@ -126,7 +122,6 @@ public class CongressionalViewActivity extends AppCompatActivity {
 
             }
         });
-
     }
 
     // Before attempting to fetch the URL, makes sure that there is a network connection.
@@ -182,17 +177,17 @@ public class CongressionalViewActivity extends AppCompatActivity {
                 JSONArray members = json.optJSONArray("results");
                 for (int i=0; i < members.length(); i++) {
                     JSONObject currMember = members.getJSONObject(i);
-                    String firstName = currMember.getString("first_name");
-                    String lastName = currMember.getString("last_name");
-                    String website = currMember.getString("website");
-                    String email = currMember.getString("oc_email");
-                    String title = currMember.getString("title");
-                    String party = currMember.getString("party");
+                    String firstName = currMember.getString("first_name");    //0
+                    String lastName = currMember.getString("last_name");      //1
+                    String website = currMember.getString("website");         //2
+                    String email = currMember.getString("oc_email");          //3
+                    String title = currMember.getString("title");             //4
+                    String party = currMember.getString("party");             //5
                     String[] entry = {firstName, lastName, website, email, title, party};
                     memberData.add(entry);
                 }
                 memberInfo = memberData;
-
+                finishOnCreate();
             } catch (JSONException e) {
                 e.printStackTrace();
             }
