@@ -48,8 +48,12 @@
         <activity
             android:name=".EnterZipCodeActivity"
             android:theme="@style/NoActionBar" />
-        <activity android:name=".GPSActivity" />
-        <activity android:name=".HTTPActivity"></activity>
+        <activity android:name=".HTTPActivity" />
+
+        <service
+            android:name=".GPSService"
+            android:enabled="true"
+            android:exported="true"></service>
     </application>
 
 </manifest>

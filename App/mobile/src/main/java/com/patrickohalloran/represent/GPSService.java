@@ -1,10 +1,10 @@
 package com.patrickohalloran.represent;
 
-import android.app.Activity;
+import android.app.Service;
 import android.content.Intent;
 import android.location.Location;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.os.IBinder;
 import android.util.Log;
 
 import com.google.android.gms.common.ConnectionResult;
@@ -16,7 +16,7 @@ import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.wearable.Wearable;
 
-public class GPSActivity extends Activity implements
+public class GPSService extends Service implements
         GoogleApiClient.ConnectionCallbacks,
         GoogleApiClient.OnConnectionFailedListener,
         LocationListener {
@@ -25,32 +25,29 @@ public class GPSActivity extends Activity implements
     private Location mLastLocation;
     private String lat;
     private String lon;
-    public static String TAG = "GPSActivity";
+    public static String TAG = "GPSService";
     public static int UPDATE_INTERVAL_MS = 3000;
     public static int FASTEST_INTERVAL_MS = 3000;
 
+    public GPSService() {
+    }
+
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-//        setContentView(R.layout.activity_gps);
+    public void onCreate() {
+        super.onCreate();
         mGoogleApiClient = new GoogleApiClient.Builder(this)
                 .addApi(LocationServices.API)
                 .addApi(Wearable.API)  // used for data layer API
                 .addConnectionCallbacks(this)
                 .addOnConnectionFailedListener(this)
                 .build();
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
         mGoogleApiClient.connect();
     }
 
     @Override
-    protected void onPause() {
-        super.onPause();
-        mGoogleApiClient.disconnect();
+    public IBinder onBind(Intent intent) {
+        // TODO: Return the communication channel to the service.
+        throw new UnsupportedOperationException("Not yet implemented");
     }
 
     @Override
@@ -82,11 +79,6 @@ public class GPSActivity extends Activity implements
     }
 
     @Override
-    public void onConnectionFailed(ConnectionResult connectionResult) {
-
-    }
-
-    @Override
     public void onLocationChanged(Location location) {
         //Get the location
         mLastLocation = LocationServices.FusedLocationApi.getLastLocation(
@@ -97,7 +89,14 @@ public class GPSActivity extends Activity implements
             Intent sendIntent = new Intent(this, CongressionalViewActivity.class);
             sendIntent.putExtra(getString(R.string.latitude), lat);
             sendIntent.putExtra(getString(R.string.longitude), lon);
+            sendIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(sendIntent);
+            mGoogleApiClient.disconnect();
         }
+    }
+
+    @Override
+    public void onConnectionFailed(ConnectionResult connectionResult) {
+
     }
 }

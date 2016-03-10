@@ -26,8 +26,8 @@ public class MainViewMobileActivity extends AppCompatActivity{
     }
 
     public void getCongressMembers(View view) {
-        Intent intent = new Intent(this, GPSActivity.class);
-        startActivity(intent);
+        Intent intent = new Intent(getBaseContext(), GPSService.class);
+        startService(intent);
 //        Intent intent = new Intent(this, CongressionalViewActivity.class);
 //        startActivity(intent);
 //        Intent sendIntent = new Intent(getBaseContext(), PhoneToWatchService.class);
