@@ -7,6 +7,7 @@ import android.media.Image;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -97,16 +98,35 @@ public class PlaceholderFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), DetailedStuffActivity.class);
-                intent.putExtra("firstName", args.getString("firstName"));
-                intent.putExtra("lastName", args.getString("lastName"));
-                intent.putExtra("party", args.getString("party"));
-                intent.putExtra("bioguide", args.getString("bioguide"));
-                intent.putExtra("termEnd", args.getString("termEnd"));
+
+//                intent.putExtra("firstName", args.getString("firstName"));
+//                intent.putExtra("lastName", args.getString("lastName"));
+//                intent.putExtra("party", args.getString("party"));
+//                intent.putExtra("bioguide", args.getString("bioguide"));
+//                intent.putExtra("termEnd", args.getString("termEnd"));
+
+                String[] s = {args.getString("firstName"), args.getString("lastName"),
+                args.getString("website"), args.getString("email"), args.getString("title"),
+                        args.getString("party"), args.getString("bioguide"), args.getString("termEnd")};
+                String m = makeMessage(s);
+                intent.putExtra("PERSON", m);
                 startActivity(intent);
             }
         });
 
         return view;
+    }
+
+    public String makeMessage(String[] memberData) {
+        StringBuilder messageBuilder = new StringBuilder();
+        for (String info : memberData) {
+            for (int i=0; i < memberData.length; i++) {
+                messageBuilder.append(memberData[i] + ",");
+            }
+        }
+        String m = messageBuilder.toString();
+        Log.d("HEEEEEREEE", m);
+        return m;
     }
 
     public static Drawable LoadImageFromWebOperations(String url) {

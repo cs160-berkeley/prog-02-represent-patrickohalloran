@@ -27,6 +27,7 @@ public class DetailedStuffActivity extends AppCompatActivity {
     private String firstName;
     private String lastName;
     private String party;
+    private String endTerm;
     private String bioguideID;
     private String DEBUG_TAG = "bruh debugging";
 
@@ -38,39 +39,38 @@ public class DetailedStuffActivity extends AppCompatActivity {
         String[] newArgs = args.split(",");
         //set background color
         this.firstName = newArgs[0];
-        this.lastName = newArgs[0];
-        this.party = newArgs[0];
-        this.bioguideID = newArgs[0];
+        this.lastName = newArgs[1];
+        this.party = newArgs[5];
+        this.bioguideID = newArgs[6];
+        this.endTerm = newArgs[7];
         LinearLayout ll = (LinearLayout) findViewById(R.id.detailed_background_id);
-//        if (args.getString("party").equals("D")) {
-//            ll.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
-//        } else if (args.getString("party").equals("R")) {
-//            ll.setBackgroundColor(getResources().getColor(R.color.colorAccent));
-//        } else {
-//            ll.setBackgroundColor(getResources().getColor(R.color.colorWhite));
-//        }
+        if (this.party.equals("D")) {
+            ll.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
+        } else if (this.party.equals("R")) {
+            ll.setBackgroundColor(getResources().getColor(R.color.colorAccent));
+        } else {
+            ll.setBackgroundColor(getResources().getColor(R.color.colorWhite));
+        }
 
-        ll.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
 
         //Set the name
         TextView nameView = (TextView) findViewById(R.id.detailed_name_id);
-        nameView.setText(newArgs[0] + " " + newArgs[0]);
+        nameView.setText(this.firstName + " " + this.lastName);
 
         //Set the party
         TextView partyView = (TextView) findViewById(R.id.detailed_party);
-        partyView.setText("Democrat");
-//        if (args.getString("party").equals("D")) {
-//            partyView.setText("Democrat");
-//        } else if (args.getString("party").equals("R")) {
-//            partyView.setText("Republican");
-//        } else {
-//            partyView.setText("Independent");
-//        }
+        if (this.party.equals("D")) {
+            partyView.setText("Democrat");
+        } else if (this.party.equals("R")) {
+            partyView.setText("Republican");
+        } else {
+            partyView.setText("Independent");
+        }
 
 
         //Set the end term
         TextView termEnd = (TextView) findViewById(R.id.detailed_dates_in_office);
-        termEnd.setText("Term end date: " + newArgs[0]);
+        termEnd.setText("Term end date: " + this.endTerm);
 
         myClickHandler();
 
