@@ -72,15 +72,19 @@ public class MainViewWatchActivity extends FragmentActivity implements SensorEve
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        System.out.println("IN MAIN WATCH");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_view_watch);
 
 
         Intent intent = getIntent();
         String memberData = intent.getStringExtra("CONGRESS_DATA");
+        System.out.println(memberData);
         String[] rows = memberData.split(";");
         String[][] matrix = new String[rows.length][];
         for (String row : rows) {
+            System.out.println(row);
             memberInfo.add(row.split(","));
         }
 
@@ -219,9 +223,18 @@ public class MainViewWatchActivity extends FragmentActivity implements SensorEve
         @Override
         public Fragment getFragment(int row, int column) {
             if (column < memberInfo.size()) {
-                return PlaceholderFragment.newInstance(row, column, memberInfo.get(column), false);
+                Bundle b = new Bundle();
+                b.putStringArray("PDATA", memberInfo.get(column));
+                Fragment frag = new PlaceholderFragment();
+                frag.setArguments(b);
+                return frag;
+            } else {
+                Bundle b = new Bundle();
+                b.putStringArray("PDATA", memberInfo.get(0));
+                Fragment frag = new PlaceholderFragment();
+                frag.setArguments(b);
+                return frag;
             }
-            return PlaceholderFragment.newInstance(row, column, memberInfo.get(0), true);
         }
 
         @Override

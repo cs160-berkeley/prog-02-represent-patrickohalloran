@@ -134,12 +134,9 @@ public class CongressionalViewActivity extends AppCompatActivity {
         StringBuilder messageBuilder = new StringBuilder();
         for (String[] member : memberData) {
             for (int i=0; i < member.length; i++) {
-                if (i == (member.length - 1)) {
-                    messageBuilder.append(member[i] + ";");
-                } else {
-                    messageBuilder.append(member[i] + ",");
-                }
+                messageBuilder.append(member[i] + ",");
             }
+            messageBuilder.append(";");
         }
         return messageBuilder.toString();
     }

@@ -19,6 +19,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <service android:name=".WatchToPhoneService" />
         <!-- Listener service for the watch to receive from phone -->
         <service
@@ -29,10 +30,10 @@
             </intent-filter>
         </service>
 
-        <!-- Permission to go on internet-->
-        <uses-permission
-            android:name="android.permission.INTERNET"/>
+        <!-- Permission to go on internet -->
+        <uses-permission android:name="android.permission.INTERNET" />
 
+        <activity android:name=".MainActivity1"></activity>
     </application>
 
 </manifest>

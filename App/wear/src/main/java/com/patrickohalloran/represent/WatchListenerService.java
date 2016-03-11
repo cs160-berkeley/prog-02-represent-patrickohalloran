@@ -18,7 +18,7 @@ public class WatchListenerService extends WearableListenerService {
 
     @Override
     public void onMessageReceived(MessageEvent messageEvent) {
-        Log.d("T", "in WatchListenerService, got: " + messageEvent.getPath());
+         Log.d("T", "in WatchListenerService, got: " + messageEvent.getPath());
         //use the 'path' field in sendmessage to differentiate use cases
         //(here, fred vs lexy)
 
@@ -28,6 +28,7 @@ public class WatchListenerService extends WearableListenerService {
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             //you need to add this flag since you're starting a new activity from a service
             intent.putExtra("CONGRESS_DATA", data);
+            System.out.println(data);
             Log.d("T", "about to start watch MainActivity with CONGRESS_DATA: " + data);
             startActivity(intent);
         } else {
