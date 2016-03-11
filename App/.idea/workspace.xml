@@ -97,7 +97,7 @@
         <entry file="file://$PROJECT_DIR$/mobile/src/main/java/com/patrickohalloran/represent/PlaceholderFragment.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="101" column="45" selection-start-line="101" selection-start-column="45" selection-end-line="101" selection-end-column="45" />
+              <caret line="102" column="41" selection-start-line="102" selection-start-column="33" selection-end-line="102" selection-end-column="41" />
               <folding>
                 <element signature="e#3549#4153#0" expanded="true" />
                 <element signature="e#4152#4153#0" expanded="true" />
@@ -122,8 +122,8 @@
             <state />
           </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="15.5172415">
-              <caret line="8" column="54" selection-start-line="8" selection-start-column="54" selection-end-line="8" selection-end-column="54" />
+            <state vertical-scroll-proportion="-9.620689">
+              <caret line="116" column="43" selection-start-line="116" selection-start-column="29" selection-end-line="116" selection-end-column="43" />
               <folding>
                 <element signature="e#477#510#0" expanded="true" />
                 <element signature="e#539#574#0" expanded="true" />
@@ -152,9 +152,12 @@
       <file leaf-file-name="DetailedStuffActivity.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/mobile/src/main/java/com/patrickohalloran/represent/DetailedStuffActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.68911916">
-              <caret line="55" column="16" selection-start-line="55" selection-start-column="16" selection-end-line="55" selection-end-column="16" />
-              <folding />
+            <state vertical-scroll-proportion="0.81840193">
+              <caret line="68" column="44" selection-start-line="68" selection-start-column="44" selection-end-line="68" selection-end-column="44" />
+              <folding>
+                <element signature="e#2975#3026#0" expanded="true" />
+                <element signature="e#3215#3266#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -2835,8 +2838,8 @@
         <option value="$PROJECT_DIR$/mobile/src/main/res/layout/fragment_template.xml" />
         <option value="$PROJECT_DIR$/mobile/src/main/java/com/patrickohalloran/represent/PlaceholderFragment.java" />
         <option value="$PROJECT_DIR$/mobile/src/main/res/layout/activity_detailed_stuff.xml" />
-        <option value="$PROJECT_DIR$/mobile/src/main/java/com/patrickohalloran/represent/DetailedStuffActivity.java" />
         <option value="$PROJECT_DIR$/mobile/src/main/java/com/patrickohalloran/represent/CongressionalViewActivity.java" />
+        <option value="$PROJECT_DIR$/mobile/src/main/java/com/patrickohalloran/represent/DetailedStuffActivity.java" />
       </list>
     </option>
   </component>
@@ -3365,7 +3368,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/mobile/src/main/java/com/patrickohalloran/represent/DetailedStuffActivity.java</url>
-          <line>28</line>
+          <line>34</line>
           <properties />
           <option name="timeStamp" value="50" />
         </line-breakpoint>
@@ -3741,14 +3744,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mobile/src/main/java/com/patrickohalloran/represent/PhoneToWatchService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="52" column="0" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/mobile/src/main/java/com/patrickohalloran/represent/MainViewMobileActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -3770,20 +3765,29 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mobile/src/main/res/layout/activity_detailed_stuff.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
+    <entry file="file://$PROJECT_DIR$/mobile/src/main/java/com/patrickohalloran/represent/CongressionalViewActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="15.5172415">
-          <caret line="8" column="54" selection-start-line="8" selection-start-column="54" selection-end-line="8" selection-end-column="54" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="100" column="44" selection-start-line="100" selection-start-column="44" selection-end-line="100" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mobile/src/main/java/com/patrickohalloran/represent/PhoneToWatchService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="52" column="0" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mobile/src/main/java/com/patrickohalloran/represent/PlaceholderFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="102" column="41" selection-start-line="102" selection-start-column="33" selection-end-line="102" selection-end-column="41" />
           <folding>
-            <element signature="e#477#510#0" expanded="true" />
-            <element signature="e#539#574#0" expanded="true" />
-            <element signature="e#604#639#0" expanded="true" />
-            <element signature="e#667#700#0" expanded="true" />
-            <element signature="e#3296#3319#0" expanded="true" />
-            <element signature="e#4182#4203#0" expanded="true" />
+            <element signature="e#3549#4153#0" expanded="true" />
+            <element signature="e#4152#4153#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -3799,30 +3803,32 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mobile/src/main/java/com/patrickohalloran/represent/PlaceholderFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="101" column="45" selection-start-line="101" selection-start-column="45" selection-end-line="101" selection-end-column="45" />
-          <folding>
-            <element signature="e#3549#4153#0" expanded="true" />
-            <element signature="e#4152#4153#0" expanded="true" />
-          </folding>
-        </state>
+    <entry file="file://$PROJECT_DIR$/mobile/src/main/res/layout/activity_detailed_stuff.xml">
+      <provider editor-type-id="android-designer">
+        <state />
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mobile/src/main/java/com/patrickohalloran/represent/CongressionalViewActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="100" column="44" selection-start-line="100" selection-start-column="44" selection-end-line="100" selection-end-column="44" />
-          <folding />
+        <state vertical-scroll-proportion="-9.620689">
+          <caret line="116" column="43" selection-start-line="116" selection-start-column="29" selection-end-line="116" selection-end-column="43" />
+          <folding>
+            <element signature="e#477#510#0" expanded="true" />
+            <element signature="e#539#574#0" expanded="true" />
+            <element signature="e#604#639#0" expanded="true" />
+            <element signature="e#667#700#0" expanded="true" />
+            <element signature="e#3296#3319#0" expanded="true" />
+            <element signature="e#4182#4203#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/mobile/src/main/java/com/patrickohalloran/represent/DetailedStuffActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.68911916">
-          <caret line="55" column="16" selection-start-line="55" selection-start-column="16" selection-end-line="55" selection-end-column="16" />
-          <folding />
+        <state vertical-scroll-proportion="0.81840193">
+          <caret line="68" column="44" selection-start-line="68" selection-start-column="44" selection-end-line="68" selection-end-column="44" />
+          <folding>
+            <element signature="e#2975#3026#0" expanded="true" />
+            <element signature="e#3215#3266#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
