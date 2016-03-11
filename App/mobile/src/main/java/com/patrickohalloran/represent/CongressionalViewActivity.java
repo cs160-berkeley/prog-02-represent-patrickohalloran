@@ -204,7 +204,8 @@ public class CongressionalViewActivity extends AppCompatActivity {
                     String title = currMember.getString("title");             //4
                     String party = currMember.getString("party");             //5
                     String bioguide = currMember.getString("bioguide_id");    //6
-                    String[] entry = {firstName, lastName, website, email, title, party, bioguide};
+                    String endDate = currMember.getString("term_end");        //7
+                    String[] entry = {firstName, lastName, website, email, title, party, bioguide, endDate};
                     memberData.add(entry);
                 }
                 memberInfo = memberData;
@@ -311,42 +312,5 @@ public class CongressionalViewActivity extends AppCompatActivity {
         }
     }
 
-//    private JSONObject parseURL(String inputUrl) throws IOException{
-//        URL url = new URL(inputUrl);
-//        HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
-//        try {
-//            String result = null;
-//            InputStream in = new BufferedInputStream(urlConnection.getInputStream());
-//            BufferedReader reader = new BufferedReader(new InputStreamReader(in, "UTF-8"), 8);
-//            StringBuilder sb = new StringBuilder();
-//            String line = null;
-//            while ((line = reader.readLine()) != null) {
-//                sb.append(line + "\n");
-//            }
-//            result = sb.toString();
-//            JSONObject JSONresult = new JSONObject(result);
-//            return JSONresult;
-//        } catch (JSONException e) {
-//            e.printStackTrace();
-//        } finally {
-//            urlConnection.disconnect();
-//        }
-//        return null;
-//    }
 
-    public void getDetailedView(View view) {
-        int id = view.getId();
-        Intent intent = new Intent(this, DetailedViewActivity.class);
-        String person;
-        if (id == R.id.bb_button) {
-            person = "1";
-        } else if (id == R.id.df_button) {
-            person = "2";
-        } else {
-            person = "3";
-        }
-        intent.putExtra("PERSON", person);
-        intent.putExtra("SOURCE", "congressional_view");
-        startActivity(intent);
-    }
 }

@@ -10,12 +10,15 @@ import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import java.io.InputStream;
 import java.net.URL;
+import java.util.AbstractList;
+import java.util.ArrayList;
 
 /**
  * Created by patrickohalloran on 2/21/16.
@@ -45,6 +48,7 @@ public class PlaceholderFragment extends Fragment {
         args.putString("title", memInfo[4]);
         args.putString("party", memInfo[5]);
         args.putString("bioguide", memInfo[6]);
+        args.putString("termEnd", memInfo[7]);
         fragment.setArguments(args);
         return fragment;
     }
@@ -52,7 +56,7 @@ public class PlaceholderFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        Bundle args = getArguments();
+        final Bundle args = getArguments();
         int person = args.getInt(ARG_SECTION_NUMBER);
         int layout_int = R.layout.fragment_template;
 
@@ -87,6 +91,21 @@ public class PlaceholderFragment extends Fragment {
         ImageView photoView = (ImageView) view.findViewById(R.id.photo_id);
         photoView.setImageDrawable(img);
 
+        //Set button onclicklistener
+        Button more = (Button) view.findViewById(R.id.more_info_id);
+        more.setOnClickListener(new Button.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), DetailedStuffActivity.class);
+                intent.putExtra("firstName", args.getString("firstName"));
+                intent.putExtra("lastName", args.getString("lastName"));
+                intent.putExtra("party", args.getString("party"));
+                intent.putExtra("bioguide", args.getString("bioguide"));
+                intent.putExtra("termEnd", args.getString("termEnd"));
+                startActivity(intent);
+            }
+        });
+
         return view;
     }
 
@@ -99,19 +118,4 @@ public class PlaceholderFragment extends Fragment {
             return null;
         }
     }
-
-//    public void getDetailedView(View view) {
-//        int id = view.getId();
-//        Intent intent = new Intent(getActivity(), DetailedViewActivity.class);
-//        String person;
-//        if (id == R.id.bb_button) {
-//            person = "BOXER";
-//        } else if (id == R.id.df_button) {
-//            person = "FEINSTEIN";
-//        } else {
-//            person = "ISSA";
-//        }
-//        intent.putExtra("PERSON", person);
-//        startActivity(intent);
-//    }
 }

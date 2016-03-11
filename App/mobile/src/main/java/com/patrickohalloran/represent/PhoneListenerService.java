@@ -31,7 +31,7 @@ public class PhoneListenerService extends WearableListenerService {
             String value = new String(messageEvent.getData(), StandardCharsets.UTF_8);
 
             // Start the process again
-            Intent intent = new Intent(this, DetailedViewActivity.class);
+            Intent intent = new Intent(this, DetailedStuffActivity.class);
             intent.putExtra("PERSON", value);
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(intent);
