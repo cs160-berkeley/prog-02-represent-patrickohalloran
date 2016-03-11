@@ -92,7 +92,7 @@ public class CongressionalViewActivity extends AppCompatActivity {
         //trying to set tabs here
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tab_layout);
         for (String[] member : memberInfo) {
-            tabLayout.addTab(tabLayout.newTab().setText(member[1]));
+            tabLayout.addTab(tabLayout.newTab().setText(member[4]));
         }
         tabLayout.setSelectedTabIndicatorColor(getResources().getColor(R.color.colorBlack));
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
