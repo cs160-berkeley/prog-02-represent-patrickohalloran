@@ -29,7 +29,8 @@ public class WatchListenerService extends WearableListenerService {
             intent.putExtra("CONGRESS_DATA", data);
             System.out.println(data);
             Log.d("T", "about to start watch MainActivity with CONGRESS_DATA: " + data);
-            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+//            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivity(intent);
             Log.d("T", "Started Activity!!!");
         } else {
