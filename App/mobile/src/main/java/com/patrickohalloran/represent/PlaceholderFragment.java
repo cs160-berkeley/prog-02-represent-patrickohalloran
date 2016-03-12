@@ -13,6 +13,8 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
+import android.text.Html;
+import android.text.method.LinkMovementMethod;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -87,12 +89,27 @@ public class PlaceholderFragment extends Fragment {
         nameView.setText(args.getString("firstName") + " " + args.getString("lastName"));
 
         //set the email
-        TextView emailView = (TextView) view.findViewById(R.id.email_id);
+        final TextView emailView = (TextView) view.findViewById(R.id.email_id);
         emailView.setText(args.getString("email"));
+        emailView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent sendIntent = new Intent(Intent.ACTION_SEND);
+                sendIntent.setType("plain/text");
+                String[] recipients  = new String[]{args.getString("email")};
+                sendIntent.putExtra(Intent.EXTRA_EMAIL, recipients);
+                sendIntent.putExtra(Intent.EXTRA_SUBJECT, "HEY THERE");
+                getContext().startActivity(Intent.createChooser(sendIntent, "Send mail..."));
+            }
+        });
 
         //set the website
         TextView websiteView = (TextView) view.findViewById(R.id.website_id);
         websiteView.setText(args.getString("website"));
+        websiteView.setClickable(true);
+        websiteView.setMovementMethod(LinkMovementMethod.getInstance());
+        String text = "<a href='" + websiteView.getText().toString() + "'> " + websiteView.getText().toString() + " </a>";
+        websiteView.setText(Html.fromHtml(text));
 
         //Set button onclicklistener
         Button more = (Button) view.findViewById(R.id.more_info_id);
