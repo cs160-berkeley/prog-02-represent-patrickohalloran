@@ -64,6 +64,7 @@ public class CongressionalViewActivity extends AppCompatActivity {
     private String lat;
     private String lon;
     private String bioguideID;
+    private String location;
 
     private ArrayList<String[]> memberInfo;
 
@@ -126,7 +127,7 @@ public class CongressionalViewActivity extends AppCompatActivity {
 
             }
         });
-        String watchMessage = makeMessage(memberInfo);
+        String watchMessage = makeMessage(memberInfo) + this.location;
         Intent sendIntent = new Intent(getBaseContext(), PhoneToWatchService.class);
         sendIntent.putExtra("CONGRESS_DATA", watchMessage);
         startService(sendIntent);
@@ -156,11 +157,13 @@ public class CongressionalViewActivity extends AppCompatActivity {
             stringUrl = "https://congress.api.sunlightfoundation.com/legislators/locate?"
                     + "zip=" + this.zipCode
                     + "&apikey=" + getResources().getString(R.string.sunlight_API_key);
+            this.location = this.zipCode;
         } else {
             stringUrl = "https://congress.api.sunlightfoundation.com/legislators/locate?"
                     + "latitude=" + this.lat
                     + "&longitude=" + this.lon
                     + "&apikey=" + getResources().getString(R.string.sunlight_API_key);
+            this.location = this.lat + "," + this.lon;
         }
         ConnectivityManager connMgr = (ConnectivityManager)
                 getSystemService(Context.CONNECTIVITY_SERVICE);

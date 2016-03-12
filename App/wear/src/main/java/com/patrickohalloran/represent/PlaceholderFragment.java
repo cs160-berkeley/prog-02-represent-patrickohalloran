@@ -31,6 +31,10 @@ public class PlaceholderFragment extends CardFragment implements View.OnClickLis
     private int numItems;
     private Bundle bun;
     private String[] mArgs;
+    private String county;
+    private String state;
+    private String romney;
+    private String obama;
 
 
     public PlaceholderFragment() {
@@ -39,14 +43,22 @@ public class PlaceholderFragment extends CardFragment implements View.OnClickLis
 
     @Override
     public View onCreateContentView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_template_watch, container, false);
+        View view;
         bun = getArguments();
-        mArgs = bun.getStringArray("PDATA");
-        Log.i("I SET THE THINGS", "AS U CAN TELL");
-        //Set the name and party
-        TextView nameView = (TextView) view.findViewById(R.id.congress_member_name);
-        nameView.setText(mArgs[0] + " " + mArgs[1] + System.lineSeparator() + mArgs[5]);
-        view.setOnClickListener(this);
+        if (bun.containsKey("PDATA")) {
+            view = inflater.inflate(R.layout.fragment_template_watch, container, false);
+            mArgs = bun.getStringArray("PDATA");
+            Log.i("I SET THE THINGS", "AS U CAN TELL");
+            //Set the name and party
+            TextView nameView = (TextView) view.findViewById(R.id.congress_member_name);
+            nameView.setText(mArgs[0] + " " + mArgs[1] + System.lineSeparator() + mArgs[5]);
+            view.setOnClickListener(this);
+        } else {
+            view = inflater.inflate(R.layout.fragment_vote, container, false);
+//            String stats = bun.getString("2012");
+//            TextView statsView = (TextView) view.findViewById(R.id.vote_stats);
+//            statsView.setText(stats);
+        }
         return view;
     }
 
