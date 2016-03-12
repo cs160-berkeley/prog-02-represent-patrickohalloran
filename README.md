@@ -12,9 +12,12 @@ See [This really cool video] (https://youtu.be/tIbKuL6D-vI)
 
 ## Screenshots
 
-<img src="screenshots/main.png" height="400" alt="Screenshot"/>
-<img src="screenshots/main.png" height="400" alt="Screenshot"/>
-<img src="screenshots/main.png" height="400" alt="Screenshot"/>
+<img src="screenshots/Screen Shot 2016-03-11 at 10.13.02 PM.png" height="400" alt="Screenshot"/>
+<img src="screenshots/Screen Shot 2016-03-11 at 10.13.57 PM.png" height="400" alt="Screenshot"/>
+<img src="screenshots/Screen Shot 2016-03-11 at 10.14.09 PM.png" height="400" alt="Screenshot"/>
+<img src="screenshots/Screen Shot 2016-03-11 at 10.14.23 PM.png" height="400" alt="Screenshot"/>
+<img src="screenshots/Screen Shot 2016-03-11 at 10.15.20 PM.png" height="400" alt="Screenshot"/>
+<img src="screenshots/Screen Shot 2016-03-11 at 10.34.39 PM.png" height="400" alt="Screenshot"/>
 
 ## Acknowledgments
 
