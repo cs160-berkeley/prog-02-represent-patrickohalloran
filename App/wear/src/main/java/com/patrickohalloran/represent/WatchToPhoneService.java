@@ -60,10 +60,20 @@ public class WatchToPhoneService extends Service implements GoogleApiClient.Conn
             _data = args.getString("PERSON");
             _path = "/getDetailedView";
         } else {
-            _data = args.getString("LOCATION");
+            _data = args.getString("COORDINATES");
             _path = "/getRandomViews";
         }
-        mWatchApiClient.connect();
+
+        // Send the message with the cat name
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                //first, connect to the apiclient
+                mWatchApiClient.connect();
+                //now that you're connected, send a massage with the cat name
+                sendMessage(_path, _data);
+            }
+        }).start();
         return START_STICKY;
     }
 
@@ -80,12 +90,13 @@ public class WatchToPhoneService extends Service implements GoogleApiClient.Conn
                     @Override
                     public void onResult(NodeApi.GetConnectedNodesResult getConnectedNodesResult) {
                         nodes = getConnectedNodesResult.getNodes();
-                        Log.d("T", "found nodes");
+
+                        Log.i("THAT IT HAS BEEN SENT", "found nodes");
                         //when we find a connected node, we populate the list declared above
                         //finally, we can send a message
-                        sendMessage(_path, _data);
-                        Log.d("T", "sent");
-                        _this.stopSelf();
+                        //sendMessage("/send_toast", "Goodjob!");
+                        //sendMessage("hello", "itsme");
+//                        _this.stopSelf();
                     }
                 });
     }

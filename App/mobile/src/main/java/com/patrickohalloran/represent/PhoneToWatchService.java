@@ -62,9 +62,10 @@ public class PhoneToWatchService extends Service {
                 mApiClient.connect();
                 //now that you're connected, send a massage with the cat name
                 sendMessage("/" + memberKey, memberData);
+//                _this.stopSelf();
             }
         }).start();
-//        _this.stopSelf();
+
 
         return START_STICKY;
     }

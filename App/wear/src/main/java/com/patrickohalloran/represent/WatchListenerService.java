@@ -25,12 +25,13 @@ public class WatchListenerService extends WearableListenerService {
         if( messageEvent.getPath().equalsIgnoreCase( DATA_FEED ) ) {
             String data = new String(messageEvent.getData(), StandardCharsets.UTF_8);
             Intent intent = new Intent(this, MainViewWatchActivity.class );
-            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             //you need to add this flag since you're starting a new activity from a service
             intent.putExtra("CONGRESS_DATA", data);
             System.out.println(data);
             Log.d("T", "about to start watch MainActivity with CONGRESS_DATA: " + data);
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(intent);
+            Log.d("T", "Started Activity!!!");
         } else {
             super.onMessageReceived( messageEvent );
         }

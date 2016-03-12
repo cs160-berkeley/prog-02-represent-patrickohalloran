@@ -44,11 +44,14 @@ public class PhoneListenerService extends WearableListenerService {
 
         } else if (messageEvent.getPath().equalsIgnoreCase(RANDOM_LOCATION)) {
             Intent sendIntent = new Intent(this, CongressionalViewActivity.class);
+            String location = new String(messageEvent.getData(), StandardCharsets.UTF_8);
+            String[] coords = location.split(",");
+            sendIntent.putExtra("LAT", coords[0]);
+            sendIntent.putExtra("LON", coords[1]);
             sendIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(sendIntent);
-            String location = new String(messageEvent.getData(), StandardCharsets.UTF_8);
-            Toast toast = Toast.makeText(getApplicationContext(), location, Toast.LENGTH_LONG);
-            toast.show();
+
+
 
         } else {
             Context context = getApplicationContext();

@@ -15,11 +15,14 @@ import android.support.wearable.view.CardFragment;
 import android.support.wearable.view.DotsPageIndicator;
 import android.support.wearable.view.FragmentGridPagerAdapter;
 import android.support.wearable.view.GridViewPager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -73,6 +76,7 @@ public class MainViewWatchActivity extends FragmentActivity implements SensorEve
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
+
         System.out.println("IN MAIN WATCH");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_view_watch);
@@ -107,6 +111,7 @@ public class MainViewWatchActivity extends FragmentActivity implements SensorEve
         // Assigns an adapter to provide the content for this pager
         mViewPager.setAdapter(new GridPagerAdapter(getFragmentManager(), data));
         mPageIndicator.setPager(mViewPager);
+
     }
 
     @Override
@@ -165,20 +170,20 @@ public class MainViewWatchActivity extends FragmentActivity implements SensorEve
     }
 
     public void randomLocation() {
-        int westBound = 122;
-        int eastBound = 74;
-        int northBound = 40;
-        int southBound = 32;
+        int westBound = -117;
+        int eastBound = -81;
+        int northBound = 41;
+        int southBound = 33;
         Random rand = new Random();
-        int lat = rand.nextInt((westBound - eastBound) + 1) + eastBound;
-        int lon = rand.nextInt((northBound - southBound) + 1) + southBound;
-        String location = "Location:(" + Integer.toString(lat) + ", " + Integer.toString(lon) + ")";
-        LayoutInflater inflater = (LayoutInflater)getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        TextView stats = (TextView) findViewById(R.id.vote_stats);
-        stats.setText(R.string.vote_stats2);
-        inflater.inflate(R.layout.fragment_vote, null);
+        float tempLat = (-81 - (rand.nextFloat() * 36));
+        float tempLon = 33 + (rand.nextFloat() * 8);
+        DecimalFormat df = new DecimalFormat("0.####");
+        df.setRoundingMode(RoundingMode.DOWN);
+        double outputLat = Double.valueOf(df.format(tempLat));
+        double outputLon = Double.valueOf(df.format(tempLon));
         Intent sendIntent = new Intent(this, WatchToPhoneService.class);
-        sendIntent.putExtra("LOCATION", location);
+        Log.d("COOORDINATESSS", String.valueOf(outputLon) + "," + String.valueOf(outputLat));
+        sendIntent.putExtra("COORDINATES", String.valueOf(outputLon) + "," + String.valueOf(outputLat));
         startService(sendIntent);
     }
 
