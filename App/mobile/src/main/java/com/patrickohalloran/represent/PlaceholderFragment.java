@@ -1,9 +1,15 @@
 package com.patrickohalloran.represent;
 
+import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.media.Image;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
@@ -30,6 +36,7 @@ public class PlaceholderFragment extends Fragment {
      * fragment.
      */
     private static final String ARG_SECTION_NUMBER = "section_number";
+    private static final String DEBUG_TAG = "DEBUGGING HERE BRO:";
 
     public PlaceholderFragment() {
     }
@@ -62,6 +69,8 @@ public class PlaceholderFragment extends Fragment {
         int layout_int = R.layout.fragment_template;
 
         View view = inflater.inflate(layout_int, container, false);
+        ImageView im = (ImageView) view.findViewById(R.id.photo_id);
+        getPicture(args.getString("bioguide"), im);
 
         //set background color
         LinearLayout ll = (LinearLayout) view.findViewById(R.id.background_id);
@@ -84,13 +93,6 @@ public class PlaceholderFragment extends Fragment {
         //set the website
         TextView websiteView = (TextView) view.findViewById(R.id.website_id);
         websiteView.setText(args.getString("website"));
-
-        //set the image
-        Drawable img = LoadImageFromWebOperations("https://theunitedstates.io/images/congress/450x550/"
-                + args.getString("bioguide")
-                +".jpg");
-        ImageView photoView = (ImageView) view.findViewById(R.id.photo_id);
-        photoView.setImageDrawable(img);
 
         //Set button onclicklistener
         Button more = (Button) view.findViewById(R.id.more_info_id);
@@ -129,13 +131,45 @@ public class PlaceholderFragment extends Fragment {
         return m;
     }
 
-    public static Drawable LoadImageFromWebOperations(String url) {
-        try {
-            InputStream is = (InputStream) new URL(url).getContent();
-            Drawable d = Drawable.createFromStream(is, "src name");
-            return d;
-        } catch (Exception e) {
-            return null;
+    public void getPicture(String bioguideID, ImageView v) {
+        String photoUrl =
+                "https://theunitedstates.io/images/congress/225x275/"
+                        + bioguideID
+                        + ".jpg";
+        ImageView photo = (ImageView) v.findViewById(R.id.photo_id);
+        String[] imgs = {photoUrl};
+        ConnectivityManager connMgr = (ConnectivityManager)
+                getActivity().getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
+        if (networkInfo != null && networkInfo.isConnected()) {
+            new DownloadImageTask(photo).execute(imgs);
+        } else {
+            Log.d(DEBUG_TAG, "No network connection available.");
+        }
+    }
+
+    private class DownloadImageTask extends AsyncTask<String, Void, Bitmap> {
+        ImageView bmImage;
+
+        public DownloadImageTask(ImageView bmImage) {
+            this.bmImage = bmImage;
+        }
+
+        protected Bitmap doInBackground(String... urls) {
+            String urldisplay = urls[0];
+            Bitmap mIcon11 = null;
+            try {
+                InputStream in = new java.net.URL(urldisplay).openStream();
+                mIcon11 = BitmapFactory.decodeStream(in);
+            } catch (Exception e) {
+                Log.e("Error", e.getMessage());
+                e.printStackTrace();
+            }
+            return mIcon11;
+        }
+
+        protected void onPostExecute(Bitmap result) {
+            bmImage.setImageBitmap(result);
         }
     }
 }

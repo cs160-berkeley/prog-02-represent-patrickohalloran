@@ -2,6 +2,8 @@ package com.patrickohalloran.represent;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
@@ -23,6 +25,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import org.json.JSONArray;
@@ -60,6 +63,7 @@ public class CongressionalViewActivity extends AppCompatActivity {
     private String zipCode;
     private String lat;
     private String lon;
+    private String bioguideID;
 
     private ArrayList<String[]> memberInfo;
 
@@ -141,6 +145,8 @@ public class CongressionalViewActivity extends AppCompatActivity {
         return messageBuilder.toString();
     }
 
+
+
     // Before attempting to fetch the URL, makes sure that there is a network connection.
     public void myClickHandler(boolean isZip) {
         // Gets the URL from the UI's text field.
@@ -201,6 +207,7 @@ public class CongressionalViewActivity extends AppCompatActivity {
                     String title = currMember.getString("title");             //4
                     String party = currMember.getString("party");             //5
                     String bioguide = currMember.getString("bioguide_id");    //6
+                    bioguideID = bioguide;
                     String endDate = currMember.getString("term_end");        //7
                     String[] entry = {firstName, lastName, website, email, title, party, bioguide, endDate};
                     memberData.add(entry);
@@ -243,6 +250,7 @@ public class CongressionalViewActivity extends AppCompatActivity {
             return null;
         }
     }
+
 
 
     @Override
